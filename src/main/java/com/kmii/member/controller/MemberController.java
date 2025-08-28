@@ -1,5 +1,7 @@
 package com.kmii.member.controller;
 
+import java.util.List;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kmii.member.dao.MemberDao;
+import com.kmii.member.dto.MemberDto;
 
 @Controller
 public class MemberController {
@@ -26,6 +29,23 @@ public class MemberController {
 		return "join";
 	}
 	
+	@RequestMapping(value="/search")
+	public String search() {
+		return "searchMember";
+	}
+	
+	@RequestMapping(value="/searchOk")
+	public String searchOk(HttpServletRequest request , Model model) {
+		
+		
+		MemberDto mDto = memberDao.searchMember(request.getParameter("memberid"));
+		model.addAttribute("mDto",mDto);
+		model.addAttribute("result", 1);
+		
+		
+		return "searchMember";
+	}
+	
 	@RequestMapping(value="/joinOk")
 	public String joinOk(HttpServletRequest request, Model model) {
 		String mid = request.getParameter("memberid");
@@ -40,5 +60,17 @@ public class MemberController {
 		
 		return "joinOk";
 	}
+	
+	@RequestMapping(value="/memberList")
+		public String memberList(Model model) { 
+		
+		List<MemberDto> mDtos = memberDao.searchMembers();
+		model.addAttribute(mDtos);
+		
+		return "memberList";
+		}
+	
+	
+	
 	
 }
