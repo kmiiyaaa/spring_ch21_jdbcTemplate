@@ -14,7 +14,7 @@ import com.kmii.member.dao.MemberDao;
 @Controller
 public class MemberController {
 	
-	@Autowired
+	@Autowired		
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
