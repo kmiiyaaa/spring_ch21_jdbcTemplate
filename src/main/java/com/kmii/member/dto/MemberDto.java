@@ -12,7 +12,7 @@ import lombok.Setter;
 
 public class MemberDto {
 	
-	private String memeberid;
+	private String memberid;
 	private String memberpw;
 	private String membername;
 	private int memberage;

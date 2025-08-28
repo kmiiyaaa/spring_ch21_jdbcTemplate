@@ -61,14 +61,14 @@ public class MemberController {
 		return "redirect:memberList";
 	}
 	
-	@RequestMapping(value="/memberList")
-		public String memberList(Model model) { 
+	@RequestMapping(value = "/memberList")
+	public String memberList(Model model) {
 		
 		List<MemberDto> mDtos = memberDao.searchMembers();
-		model.addAttribute("mDtos",mDtos);
+		model.addAttribute("mDtos", mDtos);
 		
 		return "memberList";
-		}
+	}
 	
 	
 	

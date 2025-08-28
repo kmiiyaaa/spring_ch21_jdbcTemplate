@@ -49,13 +49,12 @@ public class MemberDao {
 	}
 	
 	
-	//select문 수현 = 전체목록 가져오기
-	public List<MemberDto> searchMembers() {  // 모두 가져오는거라 매개변수 필요없다
-		String sql = "SELECT * FROM membertbl";
-		return  jdbcTemplate.query(sql, new BeanPropertyRowMapper<MemberDto>(MemberDto.class));  //이렇게 하려면 필드이름과 dto의 이름이 같아야한
-						//여러명은 query
-		
-	}
+	//Select문 구현 - 전체 회원 가져오기
+		public List<MemberDto> searchMembers() {
+			String sql = "SELECT * FROM membertbl";
+			return jdbcTemplate.query(sql, new BeanPropertyRowMapper<MemberDto>(MemberDto.class));
+			//return mDto;
+		}
 	
 
 }
