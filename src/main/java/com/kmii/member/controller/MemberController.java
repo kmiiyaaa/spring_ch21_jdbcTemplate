@@ -58,7 +58,7 @@ public class MemberController {
 		
 		memberDao.insertMember(mid, mpw, mname, mage);  //위에 autowired 써줘서 이렇게만 쓰면된다.
 		
-		return "joinOk";
+		return "redirect:memberList";
 	}
 	
 	@RequestMapping(value="/memberList")
