@@ -40,7 +40,7 @@ public class MemberController {
 		
 		MemberDto mDto = memberDao.searchMember(request.getParameter("memberid"));
 		model.addAttribute("mDto",mDto);
-		model.addAttribute("result", 1);
+		model.addAttribute("result", "1");
 		
 		
 		return "searchMember";
@@ -65,7 +65,7 @@ public class MemberController {
 		public String memberList(Model model) { 
 		
 		List<MemberDto> mDtos = memberDao.searchMembers();
-		model.addAttribute(mDtos);
+		model.addAttribute("mDtos",mDtos);
 		
 		return "memberList";
 		}

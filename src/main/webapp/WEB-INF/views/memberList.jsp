@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +10,10 @@
 <body>
 	<h2>모든 회원 리스트</h2>
 	<hr>
-	<c:froEach items=${mDtos } var="mDto">
+	<c:forEach items="${mDtos }" var="mDto">
 		<h3>
-			${mDto.memberid } / ${mDto.membername } / ${dDto.memberage }
+			${mDto.memberid } / ${mDto.membername } / ${mDto.memberage }
 		</h3>
-	</c:froEach>
+	</c:forEach>
 </body>
 </html>
